@@ -17,16 +17,23 @@ public class ScheduleUser {
     @Scheduled(cron = "0 */2 * * * *")
     public void scheduleBackupUser() throws InterruptedException{
         userService.getEvenUser();
-        log.info("::::::::SCHEDULE BACKUP::::::::"+ "COMPLETE");
+        log.info("::::::::SCHEDULE BACKUP::::::::"+ "COMPLETE::A");
         Thread.sleep(120000);
     }
 
-    @Scheduled(cron = "0 */5 * * * *")
+    @Scheduled(cron = "0 */4 * * * *")
     public void scheduleDeleteUser() throws InterruptedException{
         userService.removeOddUser();
-        log.info("::::::::SCHEDULE REMOVE::::::::"+ "COMPLETE");
+        log.info("::::::::SCHEDULE REMOVE::::::::"+ "COMPLETE::B");
         Thread.sleep(2000);
     }
 
+
+    @Scheduled(cron = "0 */5 * * * *")
+    public void scheduleAfterDeleteUser() throws InterruptedException{
+        userService.afterRemoveUser();
+        log.info("::::::::SCHEDULE AFTER REMOVE USER::::::::"+ "COMPLETE::C");
+        Thread.sleep(2000);
+    }
 
 }

@@ -22,11 +22,15 @@ public class UserService {
        return userRepository.findAll();
     }
 
-    public List getEvenUser(){
-        return em.createNamedStoredProcedureQuery("copyEvenUserProducer").getResultList();
+    public void getEvenUser(){
+        em.createNamedStoredProcedureQuery("copyEvenUserProducer").execute();
     }
 
-    public List removeOddUser(){
-       return em.createNamedStoredProcedureQuery("deleteOddUserProducer").getResultList();
+    public void removeOddUser(){
+       em.createNamedStoredProcedureQuery("deleteOddUserProducer").execute();
+    }
+
+    public void afterRemoveUser(){
+        em.createNamedStoredProcedureQuery("afterRemoveUserProducer").execute();
     }
 }
