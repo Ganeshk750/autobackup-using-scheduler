@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+@Table(name="test1")
 @NamedStoredProcedureQueries({@NamedStoredProcedureQuery(name = "copyEvenUserProducer", procedureName = "getEvenUser"),@NamedStoredProcedureQuery(name = "deleteOddUserProducer", procedureName = "removeOddUser")})
 public class User {
 

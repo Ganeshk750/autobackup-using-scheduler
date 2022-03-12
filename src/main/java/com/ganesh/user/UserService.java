@@ -26,7 +26,7 @@ public class UserService {
         return em.createNamedStoredProcedureQuery("copyEvenUserProducer").getResultList();
     }
 
-    public void removeOddUser(){
-        em.createNamedStoredProcedureQuery("deleteOddUserProducer").getResultList();
+    public List removeOddUser(){
+       return em.createNamedStoredProcedureQuery("deleteOddUserProducer").getResultList();
     }
 }
